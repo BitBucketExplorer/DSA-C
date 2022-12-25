@@ -1,0 +1,1 @@
+{"name":"Local: fibenacci","url":"s:\\LIVE-SRC\\C++\\fibenacci.cpp","tests":[{"id":1672000675002,"input":"6 4","output":"15"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"s:\\LIVE-SRC\\C++\\fibenacci.cpp","group":"local","local":true}
