@@ -2,6 +2,21 @@
 #include <math.h>
 using namespace std;
 
+int reverse(int nm)
+{
+    int ans = 0;
+    int lastdigit = 0;
+
+    while (nm > 0)
+    {
+        lastdigit = nm % 10;
+        ans = ans * 10 + lastdigit;
+        nm /= 10;
+    }
+
+    return ans;
+}
+
 int sumNaturalNumber(int nm)
 {
     int xnm;
@@ -177,6 +192,91 @@ string decimalToHexaDecimal(int n = 0)
     return ans;
 }
 
+int addBinary(int x, int y)
+{
+    int ans = 0;
+    int prevCarry = 0;
+
+    while (x > 0 && y > 0)
+    {
+        if (x % 2 == 0 && y % 2 == 0)
+        {
+            ans = ans * 10 + prevCarry;
+            prevCarry = 0;
+        }
+        else if ((x % 2 == 1 && y % 2 == 0) || (x % 2 == 0 && y % 2 == 1))
+        {
+            if (prevCarry == 1)
+            {
+                ans = ans * 10 + 0;
+                prevCarry = 1;
+            }
+            else
+            {
+                ans = ans * 10 + 1;
+                prevCarry = 0;
+            }
+        }
+        else
+        {
+            ans = ans * 10 + prevCarry;
+            prevCarry = 1;
+        }
+        x /= 10;
+        y /= 10;
+    }
+
+    while (x > 0)
+    {
+        if (prevCarry == 1)
+        {
+            if (x % 2 == 1)
+            {
+                ans = ans * 10 + 0;
+                prevCarry = 1;
+            }
+            else
+            {
+                ans = ans * 10 + 1;
+                prevCarry = 0;
+            }
+        }
+        else
+        {
+            ans = ans * 10 + (x % 2);
+        }
+        x /= 10;
+    }
+
+    while (y > 0)
+    {
+        if (prevCarry == 1)
+        {
+            if (y % 2 == 1)
+            {
+                ans = ans * 10 + 0;
+                prevCarry = 1;
+            }
+            else
+            {
+                ans = ans * 10 + 1;
+                prevCarry = 0;
+            }
+        }
+        else
+        {
+            ans = ans * 10 + (y % 2);
+        }
+        y /= 10;
+    }
+    if (prevCarry == 1)
+    {
+        ans = ans * 10 + prevCarry;
+    }
+    ans = reverse(ans);
+    return ans;
+}
+
 int main()
 {
 #ifndef ONLINE_JUDGE
@@ -211,5 +311,8 @@ int main()
     // cout << decimalToOctal(x) << endl;
 
     //-----decimalToHexaDecimal
-    cout << decimalToHexaDecimal(x) << endl;
+    // cout << decimalToHexaDecimal(x) << endl;
+
+    //----Add toBinary number
+    cout << addBinary(x, y) << endl;
 }
