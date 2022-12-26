@@ -1,0 +1,1 @@
+{"name":"Local: fun_adv","url":"s:\\LIVE-SRC\\C++\\fun_adv.cpp","tests":[{"id":1672002547175,"input":"463 2 4","output":"1010"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"s:\\LIVE-SRC\\C++\\fun_adv.cpp","group":"local","local":true}
